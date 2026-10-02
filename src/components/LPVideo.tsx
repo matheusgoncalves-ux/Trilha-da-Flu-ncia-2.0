@@ -6,7 +6,6 @@ import {
   HelpCircle,
   ChevronDown,
   Instagram,
-  Camera,
   Tv,
   Users,
   Award,
@@ -16,42 +15,13 @@ import {
 } from 'lucide-react';
 import LogoSlot from './LogoSlot';
 import LeadCaptureModal from './LeadCaptureModal';
-import NanePhotoModal, { useNanePhoto } from './NanePhotoModal';
-import PhotoSlotModal from './PhotoSlotModal';
 
-// Imagens padrão de alta qualidade para os espaços de fotos
-const DEFAULT_BROTHER_PHOTO = '/src/assets/images/nane_and_brother_1790905489086.jpg';
-const DEFAULT_MARIACLARA_PHOTO = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80';
+// Imagens fixas e oficiais do projeto
+const NANE_HERO_PHOTO = '/src/assets/images/nane_exact_photo.jpg';
+const NANE_BROTHER_PHOTO = '/src/assets/images/nane_brother_study_1790907722780.jpg';
+const MARIA_CLARA_PHOTO = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80';
 
 export default function LPVideo() {
-  // Foto da Nane no Hero
-  const { photoUrl: naneHeroPhoto } = useNanePhoto();
-  const [isNaneHeroModalOpen, setIsNaneHeroModalOpen] = useState(false);
-
-  // Foto da Nane com o Irmão (Seção 4)
-  const [brotherPhoto, setBrotherPhoto] = useState<string>(() => {
-    try {
-      const saved = localStorage.getItem('nane_brother_photo');
-      if (saved && !saved.includes('libras_hero_instructor')) {
-        return saved;
-      }
-      return DEFAULT_BROTHER_PHOTO;
-    } catch {
-      return DEFAULT_BROTHER_PHOTO;
-    }
-  });
-  const [isBrotherModalOpen, setIsBrotherModalOpen] = useState(false);
-
-  // Foto da Maria Clara (Seção 5)
-  const [mariaClaraPhoto, setMariaClaraPhoto] = useState<string>(() => {
-    try {
-      return localStorage.getItem('nane_mariaclara_photo') || DEFAULT_MARIACLARA_PHOTO;
-    } catch {
-      return DEFAULT_MARIACLARA_PHOTO;
-    }
-  });
-  const [isMariaClaraModalOpen, setIsMariaClaraModalOpen] = useState(false);
-
   // Modal de captura (pop-up ao clicar em qualquer CTA)
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -73,42 +43,6 @@ export default function LPVideo() {
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const handleSaveBrotherPhoto = (url: string) => {
-    try {
-      localStorage.setItem('nane_brother_photo', url);
-    } catch {
-      // ignore
-    }
-    setBrotherPhoto(url);
-  };
-
-  const handleResetBrotherPhoto = () => {
-    try {
-      localStorage.removeItem('nane_brother_photo');
-    } catch {
-      // ignore
-    }
-    setBrotherPhoto(DEFAULT_BROTHER_PHOTO);
-  };
-
-  const handleSaveMariaClaraPhoto = (url: string) => {
-    try {
-      localStorage.setItem('nane_mariaclara_photo', url);
-    } catch {
-      // ignore
-    }
-    setMariaClaraPhoto(url);
-  };
-
-  const handleResetMariaClaraPhoto = () => {
-    try {
-      localStorage.removeItem('nane_mariaclara_photo');
-    } catch {
-      // ignore
-    }
-    setMariaClaraPhoto(DEFAULT_MARIACLARA_PHOTO);
   };
 
   // Perguntas rápidas da Seção 6
@@ -209,41 +143,24 @@ export default function LPVideo() {
           <div className="w-full lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-[340px] sm:max-w-[390px]">
               {/* Moldura da Foto Principal da Nane */}
-              <div className="relative aspect-[4/4.9] rounded-3xl overflow-hidden bg-gradient-to-b from-[#013F99]/40 to-[#0A1A4F] border-2 border-[#013F99]/60 shadow-2xl p-2 group">
+              <div className="relative aspect-[4/4.8] rounded-3xl overflow-hidden bg-gradient-to-b from-[#013F99]/40 to-[#0A1A4F] border-2 border-[#013F99]/60 shadow-2xl p-2">
                 <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-transparent via-[#FB6601] to-transparent z-20" />
 
-                <div 
-                  onClick={() => setIsNaneHeroModalOpen(true)}
-                  className="w-full h-full rounded-2xl overflow-hidden relative cursor-pointer"
-                >
-                  {/* Botão de trocar foto discreto em laranja */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setIsNaneHeroModalOpen(true);
-                    }}
-                    className="absolute top-3 right-3 z-30 px-2.5 py-1.5 rounded-full bg-gradient-to-r from-[#FB6601] to-[#FF8A2A] hover:from-[#FF8A2A] hover:to-[#FB6601] text-white text-[10px] font-bold border border-white/20 backdrop-blur-md shadow-lg flex items-center gap-1.5 transition-all cursor-pointer group/btn"
-                    title="Colocar a foto da Nane"
-                  >
-                    <Camera className="w-3.5 h-3.5 text-white" />
-                    <span>Alterar foto</span>
-                  </button>
-
+                <div className="w-full h-full rounded-2xl overflow-hidden relative bg-[#07133B]">
                   <img
-                    src={naneHeroPhoto}
-                    alt="Nane Libras sorrindo e sinalizando"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
+                    src={NANE_HERO_PHOTO}
+                    alt="Nane Libras sinalizando Eu Te Amo em Libras com sorriso caloroso"
+                    className="w-full h-full object-cover object-[54%_25%]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A4F] via-transparent to-transparent opacity-75 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A4F] via-[#0A1A4F]/20 to-transparent opacity-60 pointer-events-none" />
                   
                   {/* Badge da Nane */}
-                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-[#0A1A4F]/90 border border-[#013F99]/80 backdrop-blur-md text-left pointer-events-none">
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 p-2.5 rounded-xl bg-[#0A1A4F]/90 border border-[#013F99]/80 backdrop-blur-md text-left pointer-events-none">
                     <span className="text-xs font-bold text-white flex items-center gap-1">
                       Nane Libras
                       <span className="text-[#FB6601]">✓</span>
                     </span>
-                    <span className="text-[10px] text-neutral-300 block">
+                    <span className="text-[10px] text-neutral-300 block leading-tight">
                       Apresentadora bilíngue na TV Canção Nova & Especialista em Neurociência
                     </span>
                   </div>
@@ -468,29 +385,13 @@ export default function LPVideo() {
           <div className="lg:col-span-6 flex justify-center">
             <div className="w-full max-w-[480px] sm:max-w-[520px] space-y-3">
               {/* Moldura elegante com proporção 4:3 para enquadrar perfeitamente ambos */}
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-b from-[#013F99]/40 to-[#0A1A4F] border-2 border-[#013F99]/80 shadow-2xl p-2 group hover:border-[#FB6601] transition-all">
-                <div 
-                  onClick={() => setIsBrotherModalOpen(true)}
-                  className="w-full h-full rounded-2xl overflow-hidden relative cursor-pointer bg-[#07133B]"
-                >
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-b from-[#013F99]/40 to-[#0A1A4F] border-2 border-[#013F99]/80 shadow-2xl p-2">
+                <div className="w-full h-full rounded-2xl overflow-hidden relative bg-[#07133B]">
                   <img
-                    src={brotherPhoto}
+                    src={NANE_BROTHER_PHOTO}
                     alt="Nane Libras com seu irmão surdo"
-                    className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500"
+                    className="w-full h-full object-cover object-center"
                   />
-
-                  {/* Botão discreto para trocar foto */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setIsBrotherModalOpen(true);
-                    }}
-                    className="absolute top-3 right-3 z-30 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#FB6601] to-[#FF8A2A] hover:from-[#FF8A2A] hover:to-[#FB6601] text-white text-[11px] font-bold shadow-lg flex items-center gap-1.5 transition-transform hover:scale-105 cursor-pointer backdrop-blur-sm"
-                    title="Clique para alterar a foto"
-                  >
-                    <Camera className="w-3.5 h-3.5 text-white" />
-                    <span>Alterar foto</span>
-                  </button>
                 </div>
               </div>
 
@@ -546,29 +447,13 @@ export default function LPVideo() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="w-full max-w-[340px] sm:max-w-[380px] space-y-3">
               {/* Moldura elegante */}
-              <div className="relative aspect-[4/4.8] rounded-3xl overflow-hidden bg-gradient-to-b from-[#013F99]/40 to-[#0A1A4F] border-2 border-[#013F99]/80 shadow-2xl p-2 group hover:border-[#FB6601] transition-all">
-                <div 
-                  onClick={() => setIsMariaClaraModalOpen(true)}
-                  className="w-full h-full rounded-2xl overflow-hidden relative cursor-pointer bg-[#07133B]"
-                >
+              <div className="relative aspect-[4/4.8] rounded-3xl overflow-hidden bg-gradient-to-b from-[#013F99]/40 to-[#0A1A4F] border-2 border-[#013F99]/80 shadow-2xl p-2">
+                <div className="w-full h-full rounded-2xl overflow-hidden relative bg-[#07133B]">
                   <img
-                    src={mariaClaraPhoto}
+                    src={MARIA_CLARA_PHOTO}
                     alt="Maria Clara - Intérprete profissional de Libras"
-                    className="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top"
                   />
-
-                  {/* Botão para trocar foto */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setIsMariaClaraModalOpen(true);
-                    }}
-                    className="absolute top-3 right-3 z-30 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#FB6601] to-[#FF8A2A] hover:from-[#FF8A2A] hover:to-[#FB6601] text-white text-[11px] font-bold shadow-lg flex items-center gap-1.5 transition-transform hover:scale-105 cursor-pointer backdrop-blur-sm"
-                    title="Clique para alterar a foto"
-                  >
-                    <Camera className="w-3.5 h-3.5 text-white" />
-                    <span>Alterar foto</span>
-                  </button>
                 </div>
               </div>
 
@@ -684,40 +569,10 @@ export default function LPVideo() {
       {/* =========================================================================
           MODAIS DE CAPTURA E FOTOS
           ========================================================================= */}
-      {/* Pop-up Modal de Captura de Lead (Nome + WhatsApp obrigatórios) */}
+      {/* Pop-up Modal de Captura de Lead (Nome, E-mail e WhatsApp obrigatórios) */}
       <LeadCaptureModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-      />
-
-      {/* Modal para Trocar Foto da Nane no Hero */}
-      <NanePhotoModal
-        isOpen={isNaneHeroModalOpen}
-        onClose={() => setIsNaneHeroModalOpen(false)}
-      />
-
-      {/* Modal para Trocar Foto da Nane com o Irmão (Seção 4) */}
-      <PhotoSlotModal
-        isOpen={isBrotherModalOpen}
-        onClose={() => setIsBrotherModalOpen(false)}
-        title="Foto da Nane com o Irmão"
-        subtitle="Escolha uma imagem da Nane com seu irmão surdo para a Seção 4"
-        currentPhoto={brotherPhoto}
-        defaultPhoto={DEFAULT_BROTHER_PHOTO}
-        onSavePhoto={handleSaveBrotherPhoto}
-        onResetPhoto={handleResetBrotherPhoto}
-      />
-
-      {/* Modal para Trocar Foto da Maria Clara (Seção 5) */}
-      <PhotoSlotModal
-        isOpen={isMariaClaraModalOpen}
-        onClose={() => setIsMariaClaraModalOpen(false)}
-        title="Foto da Maria Clara"
-        subtitle="Escolha uma imagem da Maria Clara (filha da Nane e intérprete profissional)"
-        currentPhoto={mariaClaraPhoto}
-        defaultPhoto={DEFAULT_MARIACLARA_PHOTO}
-        onSavePhoto={handleSaveMariaClaraPhoto}
-        onResetPhoto={handleResetMariaClaraPhoto}
       />
     </div>
   );

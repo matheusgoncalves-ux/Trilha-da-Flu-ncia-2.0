@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grupo VIP · Black Antecipada Trilha da Fluência 2.0 | Nane Libras</title>
+    <meta name="description" content="Participe do Grupo VIP no WhatsApp para a Black Antecipada da Trilha da Fluência 2.0 em Libras com a Nane Libras." />
+    <meta property="og:title" content="Grupo VIP · Black Antecipada Trilha da Fluência 2.0" />
+    <meta property="og:description" content="Libras não se decora. Se vive. Entre no Grupo VIP gratuito e garanta a melhor condição do ano." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Meta Pixel Base Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      // Inicialização do Pixel da Meta (Suporta VITE_META_PIXEL_ID, localStorage ou parâmetro)
+      try {
+        var pixelId = '%VITE_META_PIXEL_ID%';
+        if (!pixelId || pixelId.indexOf('VITE_') !== -1) {
+          pixelId = localStorage.getItem('meta_pixel_id') || '';
+        }
+        if (pixelId) {
+          fbq('init', pixelId);
+        }
+      } catch (e) {}
+
+      // Dispara o evento PageView do Pixel da Meta
+      window.trackMetaPageView = function() {
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'PageView');
+        }
+      };
+
+      // Dispara o evento Lead do Pixel da Meta no carregamento da página de obrigado
+      window.trackMetaLead = function(leadData) {
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'Lead', {
+            content_name: 'Grupo VIP Nane Libras',
+            currency: 'BRL',
+            ...(leadData || {})
+          });
+        }
+      };
+    </script>
+  </head>
+  <body class="bg-[#0A1A4F] text-white antialiased selection:bg-[#FB6601] selection:text-white font-['Poppins',sans-serif]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

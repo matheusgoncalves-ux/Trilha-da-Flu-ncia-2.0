@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" width="100%" height="100%" fill="none">
+  <!-- Monogram Symbol N + L / Libras Hand -->
+  <g id="nane-symbol">
+    <!-- Left Blue Arch (N body) -->
+    <path 
+      d="M272 385C245 385 224 364 224 337V180C224 125 269 80 324 80C365 80 401 105 417 141L470 260C477 276 498 276 505 260L515 237C520 226 534 221 544 226C555 231 560 245 555 256L535 301C515 346 471 375 422 375C395 375 370 364 353 345L312 299C307 293 297 296 296 304V337C296 364 285 385 272 385Z" 
+      fill="#0048B5" 
+      style="display:none"
+    />
+    
+    <!-- Exact Geometric Ribbon Construction of N + L Monogram -->
+    <!-- Shape 1: Left 'N' Ribbon Arch (Blue #0048B5) -->
+    <path 
+      d="M 230,350 
+         C 205,350 185,330 185,305 
+         L 185,175 
+         C 185,105 242,48 312,48 
+         C 358,48 398,72 420,110 
+         L 448,158 
+         C 453,167 448,178 438,181 
+         L 426,184 
+         C 419,186 412,183 408,176 
+         L 384,136 
+         C 368,110 341,94 312,94 
+         C 267,94 231,130 231,175 
+         L 231,305 
+         C 231,330 250,350 230,350 Z" 
+      fill="#0048B5"
+      style="display:none"
+    />
+
+    <!-- Accurate Vector Path for Nane Libras Logo Monogram -->
+    <!-- Base Canvas: 800x600, Center X = 400 -->
+    <!-- Blue Main Body: Combined continuous stylized N & L ribbon -->
+    <g transform="translate(400, 215) scale(1.15)">
+      <!-- Left Leg & Upper Arch (Blue #0048B5) -->
+      <path
+        d="M -125,120
+           C -152,120 -174,98 -174,71
+           L -174,-75
+           C -174,-145 -117,-202 -47,-202
+           C -7,-202 30,-182 54,-150
+           L 84,-108
+           C 93,-96 90,-78 78,-69
+           C 66,-60 48,-63 39,-75
+           L 15,-108
+           C -1,-130 -23,-143 -47,-143
+           C -85,-143 -115,-113 -115,-75
+           L -115,71
+           C -115,98 -98,120 -125,120 Z"
+        fill="#0048B5"
+      />
+
+      <!-- Center-Right Interlocking Loop & Stem (Blue #0048B5) -->
+      <path
+        d="M 105,75
+           C 105,98 87,117 64,117
+           C 41,117 23,98 23,75
+           L 23,-30
+           C 23,-46 36,-59 52,-59
+           C 68,-59 81,-46 81,-30
+           L 81,45
+           C 81,58 92,69 105,69
+           C 118,69 129,58 129,45
+           L 129,-75
+           C 129,-102 151,-124 178,-124
+           C 205,-124 227,-102 227,-75
+           L 227,35
+           C 227,95 178,144 118,144
+           C 82,144 50,126 31,98
+           L -52,-20
+           C -61,-33 -58,-51 -45,-60
+           C -32,-69 -14,-66 -5,-53
+           L 78,65
+           C 85,74 95,75 105,75 Z"
+        fill="#0048B5"
+      />
+
+      <!-- Orange Dot (Head / Sign Accent #FF5700) -->
+      <circle cx="178" cy="-185" r="42" fill="#FF5700" />
+    </g>
+  </g>
+
+  <!-- Typography -->
+  <g id="nane-typography" transform="translate(400, 485)">
+    <!-- "Nane" in Blue #0048B5 -->
+    <text 
+      x="-135" 
+      y="0" 
+      font-family="system-ui, -apple-system, 'Poppins', 'Nunito', 'Segoe UI', Roboto, sans-serif" 
+      font-weight="900" 
+      font-size="94" 
+      fill="#0048B5" 
+      text-anchor="end"
+      letter-spacing="-0.02em"
+    >Nane</text>
+
+    <!-- "Libras" in Orange #FF5700 -->
+    <text 
+      x="-115" 
+      y="0" 
+      font-family="system-ui, -apple-system, 'Poppins', 'Nunito', 'Segoe UI', Roboto, sans-serif" 
+      font-weight="900" 
+      font-size="94" 
+      fill="#FF5700" 
+      text-anchor="start"
+      letter-spacing="-0.02em"
+    >Libras</text>
+
+    <!-- Tagline: "SUA ESCOLA DE LIBRAS" in Dark Navy #003788 -->
+    <text 
+      x="0" 
+      y="65" 
+      font-family="system-ui, -apple-system, 'Poppins', 'Nunito', 'Segoe UI', Roboto, sans-serif" 
+      font-weight="800" 
+      font-size="34" 
+      fill="#003788" 
+      text-anchor="middle"
+      letter-spacing="0.26em"
+    >SUA ESCOLA DE LIBRAS</text>
+  </g>
+</svg>

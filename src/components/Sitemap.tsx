@@ -74,6 +74,14 @@ export default function Sitemap({ isPreview: propIsPreview }: SitemapProps) {
       recommended: false,
     },
     {
+      path: '/admin-fotos',
+      name: 'Gestor Privado de Fotos & Deploy Vercel',
+      description: 'Painel exclusivo para subir os arquivos originais de fotos (ex: foto WhatsApp do irmão e foto da Nane) sem IA e instruções de sincronização com o GitHub e Vercel.',
+      badge: 'Admin / Fotos',
+      badgeColor: 'text-amber-400 bg-amber-950/60 border-amber-800/60',
+      recommended: false,
+    },
+    {
       path: '/sitemap',
       name: 'Mapa de Rotas & Diagnóstico (Sitemap)',
       description: 'Painel técnico de desenvolvimento para validação de ambiente (Google IDX, Cloud Shell, Stackblitz vs Vercel/AWS).',

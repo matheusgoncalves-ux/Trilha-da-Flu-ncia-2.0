@@ -16,10 +16,15 @@ import {
 import LogoSlot from './LogoSlot';
 import LeadCaptureModal from './LeadCaptureModal';
 
-// Imagens fixas e oficiais do projeto
-const NANE_HERO_PHOTO = '/src/assets/images/nane_exact_photo.jpg';
-const NANE_BROTHER_PHOTO = '/src/assets/images/nane_brother_study_1790907722780.jpg';
-const MARIA_CLARA_PHOTO = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80';
+// Imagens fixas e oficiais do projeto (importação direta do Vite garante que a Vercel encontre os arquivos em produção)
+import naneHeroPhoto from '../assets/images/nane_exact_photo.jpg';
+import naneBrotherPhoto from '../assets/images/nane_brother_photo.jpg';
+import mariaClaraPhoto from '../assets/images/maria_clara_photo.jpg';
+import librasHandsDetail from '../assets/images/libras_hands_detail_1790213137292.jpg';
+
+const NANE_HERO_PHOTO = naneHeroPhoto;
+const NANE_BROTHER_PHOTO = naneBrotherPhoto;
+const MARIA_CLARA_PHOTO = mariaClaraPhoto;
 
 export default function LPVideo() {
   // Modal de captura (pop-up ao clicar em qualquer CTA)
@@ -149,6 +154,20 @@ export default function LPVideo() {
                 <div className="w-full h-full rounded-2xl overflow-hidden relative bg-[#07133B]">
                   <img
                     src={NANE_HERO_PHOTO}
+                    onError={(e) => {
+                      const el = e.currentTarget;
+                      const step = parseInt(el.dataset.errStep || '0', 10);
+                      const fallbacks = [
+                        '/assets/nane_exact_photo.jpeg',
+                        '/assets/nane_exact_photo.jpg',
+                        'assets/nane_exact_photo.jpeg',
+                        'assets/nane_exact_photo.jpg'
+                      ];
+                      if (step < fallbacks.length) {
+                        el.dataset.errStep = String(step + 1);
+                        el.src = fallbacks[step];
+                      }
+                    }}
                     alt="Nane Libras sinalizando Eu Te Amo em Libras com sorriso caloroso"
                     className="w-full h-full object-cover object-[54%_25%]"
                   />
@@ -170,7 +189,7 @@ export default function LPVideo() {
               {/* Detalhe de mãos em sinais */}
               <div className="absolute -bottom-4 -left-4 w-18 h-18 rounded-2xl overflow-hidden border-2 border-[#013F99] shadow-xl bg-[#0A1A4F] hidden sm:block">
                 <img
-                  src="/src/assets/images/libras_hands_detail_1790213137292.jpg"
+                  src={librasHandsDetail}
                   alt="Mãos em Libras"
                   className="w-full h-full object-cover scale-110"
                 />
@@ -389,6 +408,20 @@ export default function LPVideo() {
                 <div className="w-full h-full rounded-2xl overflow-hidden relative bg-[#07133B]">
                   <img
                     src={NANE_BROTHER_PHOTO}
+                    onError={(e) => {
+                      const el = e.currentTarget;
+                      const step = parseInt(el.dataset.errStep || '0', 10);
+                      const fallbacks = [
+                        '/assets/nane_brother_photo.jpeg',
+                        '/assets/nane_brother_photo.jpg',
+                        'assets/nane_brother_photo.jpeg',
+                        'assets/nane_brother_photo.jpg'
+                      ];
+                      if (step < fallbacks.length) {
+                        el.dataset.errStep = String(step + 1);
+                        el.src = fallbacks[step];
+                      }
+                    }}
                     alt="Nane Libras com seu irmão surdo"
                     className="w-full h-full object-cover object-center"
                   />
@@ -451,6 +484,20 @@ export default function LPVideo() {
                 <div className="w-full h-full rounded-2xl overflow-hidden relative bg-[#07133B]">
                   <img
                     src={MARIA_CLARA_PHOTO}
+                    onError={(e) => {
+                      const el = e.currentTarget;
+                      const step = parseInt(el.dataset.errStep || '0', 10);
+                      const fallbacks = [
+                        '/assets/maria_clara_photo.jpeg',
+                        '/assets/maria_clara_photo.jpg',
+                        'assets/maria_clara_photo.jpeg',
+                        'assets/maria_clara_photo.jpg'
+                      ];
+                      if (step < fallbacks.length) {
+                        el.dataset.errStep = String(step + 1);
+                        el.src = fallbacks[step];
+                      }
+                    }}
                     alt="Maria Clara - Intérprete profissional de Libras"
                     className="w-full h-full object-cover object-top"
                   />

@@ -16,7 +16,8 @@ function photoUploadPlugin() {
           });
           req.on('end', () => {
             try {
-              const { dataUrl } = JSON.parse(body);
+              const { dataUrl, filename } = JSON.parse(body);
+              const targetName = filename && typeof filename === 'string' ? path.basename(filename) : 'nane_exact_photo.jpg';
               if (dataUrl && dataUrl.includes('base64,')) {
                 const base64Data = dataUrl.split('base64,')[1];
                 const buffer = Buffer.from(base64Data, 'base64');
@@ -30,11 +31,11 @@ function photoUploadPlugin() {
                   fs.mkdirSync(srcDir, { recursive: true });
                 }
                 
-                fs.writeFileSync(path.join(publicDir, 'nane_exact_photo.jpg'), buffer);
-                fs.writeFileSync(path.join(srcDir, 'nane_exact_photo.jpg'), buffer);
+                fs.writeFileSync(path.join(publicDir, targetName), buffer);
+                fs.writeFileSync(path.join(srcDir, targetName), buffer);
                 
                 res.setHeader('Content-Type', 'application/json');
-                res.end(JSON.stringify({ success: true, url: '/assets/nane_exact_photo.jpg' }));
+                res.end(JSON.stringify({ success: true, url: `/assets/${targetName}` }));
                 return;
               }
             } catch (err) {

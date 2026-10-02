@@ -7,6 +7,7 @@ import { HashRouter, BrowserRouter, Routes, Route, Navigate } from 'react-router
 import LPVideo from './components/LPVideo';
 import Sitemap from './components/Sitemap';
 import ThankYou from './components/ThankYou';
+import AdminPhotos from './components/AdminPhotos';
 
 /**
  * Detecção de Ambiente:
@@ -55,6 +56,7 @@ export default function App() {
         <Route path="/sitemap" element={<Sitemap isPreview={isPreview} />} />
         <Route path="/lp-video" element={<LPVideo />} />
         <Route path="/obrigado" element={<ThankYou />} />
+        <Route path="/admin-fotos" element={<AdminPhotos />} />
 
         {/* Fallback de rotas inexistentes */}
         <Route path="*" element={<Navigate to="/" replace />} />

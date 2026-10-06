@@ -1,21 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { MessageCircle, ArrowRight } from 'lucide-react';
 import { NaneLogoSymbol } from './LogoSlot';
 
 export default function ThankYou() {
   const whatsappUrl = 'https://chat.whatsapp.com/DGbR8JFgwMb9ISttBSEW6c';
 
-  // Disparo do Pixel da Meta (Lead e PageView) no carregamento da página
-  useEffect(() => {
-    // Disparo imediato do evento Lead
-    if (typeof (window as any).fbq === 'function') {
-      (window as any).fbq('track', 'Lead');
-    }
-
-    if (typeof (window as any).trackMetaLead === 'function') {
-      (window as any).trackMetaLead();
-    }
-  }, []);
+  // Nota: O evento 'Lead' do Pixel da Meta agora é disparado diretamente no envio do formulário
+  // (LeadCaptureModal.tsx) para não contar em dobro caso esta página seja acessada.
 
   return (
     <div className="min-h-screen bg-[#0A1A4F] text-white flex flex-col justify-center items-center px-4 sm:px-6 py-10 font-['Poppins',sans-serif] selection:bg-[#FB6601] selection:text-white relative overflow-hidden">

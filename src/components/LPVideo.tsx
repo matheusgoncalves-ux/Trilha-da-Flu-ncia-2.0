@@ -17,9 +17,9 @@ import LogoSlot from './LogoSlot';
 import LeadCaptureModal from './LeadCaptureModal';
 
 // Imagens fixas e oficiais do projeto (importação direta do Vite garante que a Vercel encontre os arquivos em produção)
-import naneHeroPhoto from '../assets/images/nane_exact_photo.jpg';
-import naneBrotherPhoto from '../assets/images/nane_brother_photo.jpg';
-import mariaClaraPhoto from '../assets/images/maria_clara_photo.jpg';
+import naneHeroPhoto from '../assets/images/nane_exact_photo.jpeg';
+import naneBrotherPhoto from '../assets/images/nane_brother_photo.jpeg';
+import mariaClaraPhoto from '../assets/images/maria_clara_photo.jpeg';
 import librasHandsDetail from '../assets/images/libras_hands_detail_1790213137292.jpg';
 
 const NANE_HERO_PHOTO = naneHeroPhoto;

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Upload, CheckCircle2, AlertCircle, Image, ShieldCheck, RefreshCw, Sparkles, Download } from 'lucide-react';
 import { NaneLogoSymbol } from './LogoSlot';
 
-import naneHeroPhoto from '../assets/images/nane_exact_photo.jpg';
-import naneBrotherPhoto from '../assets/images/nane_brother_photo.jpg';
-import mariaClaraPhoto from '../assets/images/maria_clara_photo.jpg';
+import naneHeroPhoto from '../assets/images/nane_exact_photo.jpeg';
+import naneBrotherPhoto from '../assets/images/nane_brother_photo.jpeg';
+import mariaClaraPhoto from '../assets/images/maria_clara_photo.jpeg';
 
 export default function AdminPhotos() {
   const [heroPhotoSrc, setHeroPhotoSrc] = useState<string>(naneHeroPhoto);

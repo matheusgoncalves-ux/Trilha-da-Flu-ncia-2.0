@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { X, Lock, ShieldCheck, ArrowRight, MessageCircle, AlertCircle } from 'lucide-react';
 
 // ============================================================================
@@ -8,19 +9,16 @@ const SHEET_URL =
   import.meta.env.VITE_SHEET_URL ||
   'https://script.google.com/macros/s/AKfycbwrDdXC6mWbbIhFAsWjFwkfogeJ0QUlwKUPzJ1pnFa302PEmmw4KRCna9MHtiGHM3rz/exec';
 
-const WHATSAPP_GROUP_URL = 'https://chat.whatsapp.com/DGbR8JFgwMb9ISttBSEW6c';
-
 interface LeadCaptureModalProps {
   isOpen: boolean;
   onClose: () => void;
-  whatsappGroupUrl?: string;
 }
 
 export default function LeadCaptureModal({
   isOpen,
   onClose,
-  whatsappGroupUrl = WHATSAPP_GROUP_URL,
 }: LeadCaptureModalProps) {
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
@@ -115,8 +113,10 @@ export default function LeadCaptureModal({
       }
     }
 
-    // 3. Leva a pessoa direto ao Grupo VIP do WhatsApp
-    window.location.href = whatsappGroupUrl;
+    // 3. Fecha o modal e redireciona para a página de Obrigado (/obrigado)
+    setIsSubmitting(false);
+    onClose();
+    navigate('/obrigado');
   };
 
   return (

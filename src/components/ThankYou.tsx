@@ -49,7 +49,7 @@ export default function ThankYou() {
 
           {/* Texto descritivo */}
           <p className="text-sm sm:text-base text-neutral-200 leading-relaxed max-w-lg mx-auto">
-            É lá que vão chegar as aulas, o desafio e a novidade da Turma Fundadora. Toque no botão abaixo e entre agora, para não perder a primeira aula no sábado, às 11h.
+            É lá que vão chegar as aulas, o desafio e a novidade da Turma Fundadora. Toque no botão abaixo e entre agora, para não perder a primeira aula no sábado, às 15h.
           </p>
 
           {/* Botão (laranja, grande, logo abaixo do texto) que abre em nova aba */}
